@@ -1,7 +1,3 @@
-def random_ip():
-    return '.'.join(str(random.randint(1, 255)) for _ in range(4))
-
-
 import random
 from base64 import b64decode, b64encode
 from datetime import datetime
@@ -11,8 +7,10 @@ from urllib.parse import quote
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 
-import config
+from src dockimport config
 
+def random_ip():
+    return '.'.join(str(random.randint(1, 255)) for _ in range(4))
 
 def encrypt_aes_ecb(data, key):
     cipher = AES.new(key.encode(), AES.MODE_ECB)

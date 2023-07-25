@@ -8,8 +8,8 @@ from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-import config
-import utils
+from src import config
+from src import utils
 
 load_dotenv()
 
