@@ -11,7 +11,7 @@ from urllib.parse import quote
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 
-from src import config
+import config
 
 
 def encrypt_aes_ecb(data, key):
