@@ -27,7 +27,7 @@ async def root():
 class TTSRequest(BaseModel):
     text: str = Query("text", description="待转换文本")
     format: str = Query("sil", description="音频格式(mp3/sil) 默认sil")
-    zbid: str = Query("5ea5a236a0b67106", description="主播id默认熊二")
+    zbid: str = Query(config.DEFAULT_VOICE, description="主播id默认熊二")
 
 
 class TTSResponse(BaseModel):
@@ -41,7 +41,8 @@ def tts(request: TTSRequest) -> TTSResponse:
 
     if not request.text:
         raise HTTPException(status_code=400, detail="Text must not be empty")
-
+    if not request.zbid:
+        request.zbid = config.DEFAULT_VOICE
     try:
         plaintText, body = utils.encrypted_params(
             text=request.text, zbid=request.zbid, conf=conf

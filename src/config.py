@@ -1,6 +1,7 @@
 import logging
 import os
 
+DEFAULT_VOICE="5ea5a236a0b67106"
 
 def bind_env_variables(cls):
     for attr_name in dir(cls):
