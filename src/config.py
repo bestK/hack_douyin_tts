@@ -30,7 +30,8 @@ class ColoredFormatter(logging.Formatter):
 
 # 创建自定义的ColoredFormatter实例
 formatter = ColoredFormatter(
-    fmt="%(log_color)s%(levelname)s\033[0m  - %(asctime)s - %(name)s - %(lineno)s - %(message)s"
+    fmt="%(log_color)s%(levelname)s\033[0m  - %(asctime)s - %(name)s - %(lineno)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 
 # 创建自定义的StreamHandler，并将ColoredFormatter配置为其格式化器
@@ -39,11 +40,6 @@ handler.setFormatter(formatter)
 
 
 def get_logger():
-    logging.basicConfig(
-        format="%(log_color)s%(levelname)s\033[0m  - %(asctime)s - %(name)s - %(lineno)s - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-    )
-
     logger = logging.getLogger(__name__)
 
     logger.addHandler(handler)
