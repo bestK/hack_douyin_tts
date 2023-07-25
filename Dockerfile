@@ -1,5 +1,3 @@
-ARG PORT=443
-
 FROM ubuntu:latest
 
 WORKDIR /app
@@ -13,4 +11,6 @@ COPY . .
 RUN cd /app && \
     pip install -r requirements.txt
 
-CMD uvicorn src.main:app --host 0.0.0.0 --port $PORT
+EXPOSE 443    
+
+CMD uvicorn src.main:app --host 0.0.0.0 --port 443
