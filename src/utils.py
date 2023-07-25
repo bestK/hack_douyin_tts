@@ -7,7 +7,7 @@ from urllib.parse import quote
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 
-from src dockimport config
+from src import config
 
 def random_ip():
     return '.'.join(str(random.randint(1, 255)) for _ in range(4))
