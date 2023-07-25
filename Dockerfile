@@ -21,4 +21,4 @@ COPY . .
 
 EXPOSE 443
 
-CMD ["poetry", "run", "python", "src/main.py"]
+CMD ["poetry", "run", "uvicorn", "src.main:app","--host","0.0.0.0","--port","443"]
